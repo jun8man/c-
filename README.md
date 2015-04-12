@@ -1,2 +1,2 @@
-# c-
-studying c++
+# cpp
+This is for c++ study.
