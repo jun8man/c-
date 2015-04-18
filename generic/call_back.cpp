@@ -1,5 +1,5 @@
 /**
- * call back
+ * call back with function pointer.
  */
 
 #include <iostream>
