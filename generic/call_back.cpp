@@ -4,23 +4,26 @@
 
 #include <iostream>
 
-void func1(const int val){
+template <typename T>
+T func1(const T val){
   std::cout << "func" << val << std::endl;
-  return;
 }
 
-void func2(const int val){
+template <typename T>
+T func2(const T val){
   std::cout << "func" << val*2 << std::endl;
-  return;
 }
 
-void func(const int val, void (* p_func)(const int)){
+template <typename T>
+T func(const T val, T (* p_func)(const T)){
   p_func(val);
 }
 
 int main(int argc, char const *argv[])
 {
-  func(3, func1);
+  func(3.3, func1);
   func(3, func2);
+  func("hoge", func1);
+//  func("fuga", func2);  // compile error pattern.
   return 0;
 }
