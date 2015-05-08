@@ -90,8 +90,8 @@ public:
   }
 };
 
-template<typename T_F>
-T_F calc(T_F a, T_F b, T_F f)
+template<typename T_F, typename T_F2>
+T_F calc(T_F a, T_F b, T_F2& f)
 {
   return f(a, b);
 }
@@ -115,6 +115,9 @@ int main(int argc, char const *argv[])
   std::cout << add_i(10, 20) << std::endl;
   std::cout << add_s("A", "C") << std::endl;
   std::cout << sub_d(1.5, 1) << std::endl;
+
+  std::cout << calc(1, 1, add_i) << std::endl;
+
 
   return 0;
 }

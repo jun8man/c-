@@ -24,6 +24,7 @@ int main(int argc, char const *argv[])
   func(3.3, func1);
   func(3, func2);
   func("hoge", func1);
-//  func("fuga", func2);  // compile error pattern.
+//  func("fuga", func2);  // これはコンパイルエラーになる、だってStringで*はできないから.
+
   return 0;
 }
