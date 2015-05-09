@@ -75,6 +75,7 @@ public:
   virtual ~Simple_class(){
   }
 
+  // 最初の()はコンストラクタ的な意味、で後の()が関数の引数部分的な意味
   virtual void operator()() {
       (m_obj->*m_call_back)();
   }
@@ -84,6 +85,10 @@ private:
   T_Class *m_obj;
 };
 
+void api_yamajun(Delegate& call_back)
+{
+  call_back();
+}
 
 int main(int argc, char const *argv[])
 {
@@ -91,14 +96,17 @@ int main(int argc, char const *argv[])
   // 型はTemplateを使っているのでなんでもよい
   // 受ける側は継承元のインターフェイスクラス
   My_class obj;
-  Delegate* obj2 = new Simple_class<My_class> (&obj, &My_class::func);
+  Simple_class<My_class> obj2(&obj, &My_class::func);
   // *は()よりも呼び出し優先度が低いので*obj2()と書くと*(obj2())ってことになってエラーになるので注意！
-  (*obj2)();
+  //  (*obj2)();
 
   // グローバル関数を渡した場合.
   // 受ける側は継承元のインターフェイスクラス
-  Delegate* obj3 = new Simple_func(func);
-  (*obj3)();
+  Simple_func obj3(func);
+  //  (*obj3)();
+
+  api_yamajun(obj2);
+  api_yamajun(obj3);
 
   return 0;
 }
