@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class HybridZoom : Zoom
+class HybridZoom : public Zoom
 {
 public:
     HybridZoom();

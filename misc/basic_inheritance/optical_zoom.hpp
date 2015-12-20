@@ -8,7 +8,7 @@
 
 #include "zoom.hpp"
 
-class OpticalZoom : Zoom
+class OpticalZoom : public Zoom
 {
 public:
     OpticalZoom();

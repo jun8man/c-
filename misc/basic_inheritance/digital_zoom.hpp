@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class DigitalZoom : Zoom
+class DigitalZoom : public Zoom
 {
 public:
     DigitalZoom();
