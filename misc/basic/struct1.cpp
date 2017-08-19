@@ -1,4 +1,4 @@
-        #include <iostream>
+#include <iostream>
 
 #define SIZE_OF_ARRAY(array)    sizeof (array) /sizeof *(array)
 
