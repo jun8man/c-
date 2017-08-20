@@ -30,6 +30,27 @@ bool compare()
         return false;
     }
 
+    // ""に囲まれた文字列をリテラル文字列と呼ぶ.
+    // リテラル文字列は静的データなので、寿命はプログラム開始から終了まで.
+    // ポインタにリテラル文字列を代入すると,
+    // ポインタにはそのリテラル文字列へのアドレスが代入される.
+    // アドレスが格納されているのでリテラル文字列は直接書き換えられてしまう.
+    // それを避けるために const を付けている.
+    // 毎回関数に入るたび初期化されるのも無駄なので static をつけている.
+    static const char* p_result[] = {
+        "1st is smaller than 2nd.",
+        "Both number is same.",
+        "1st is greater than 2nd."
+    };
+    // ちなみに配列をリテラル文字列で初期化した場合は,
+    // その配列はリテラル文字列を直接指すわけではない.
+    // char str[] = "foo.";
+    // 単に「配列で初期化されるだけ」, 下記と一緒.
+    // char str[] = { 'f', 'o', 'o', 0, };
+
+    cout << p_result[compare(a, b)] << endl;
+/*
+    // ポインタを使わないパターンだと同じようなコードを書かないといけない.
     switch(compare(a, b))
     {
         case LESSTHAN:
@@ -45,6 +66,7 @@ bool compare()
             cout << "error. your input was something wrong." << endl;
             break;
     }
+*/
     return true;
 }
 
